@@ -71,7 +71,7 @@
 
     "quotemark": [true, "single", "avoid-escape"], //引号的使用规则
     "semicolon": [true, "never", "ignore-interfaces"], //分号的使用规则
-    "indent": [true, "tabs", 2], //使用Tab进行缩进，每次强制缩进2个字符
+    "indent": [true, "tabs", 4], //使用Tab进行缩进，每次强制缩进2个字符
     "whitespace": false, //空格的校验
     "one-line": false, //要求指定的标记与它们之前的表达式位于同一行
     "trailing-comma": [true, { //对尾随逗号的校验
