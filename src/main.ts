@@ -8,10 +8,8 @@ import { routes } from './router/index.js'
 const router = new VueRouter({
     routes // (缩写) 相当于 routes: routes
   })
-Vue.use(VueRouter);
 new Vue({
   el: '#app',
-  Router: router,
-  template: '<App/>',
+  router: router,
   render: (h: Function) => h(App)
 })

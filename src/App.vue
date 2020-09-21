@@ -7,7 +7,7 @@
 export default {
   name: 'app',
   created () {
-      console.log('route', this.$route)
+      // if (!this.$route.name) this.$router.push('mysvg')
   },
   data () {
     return {
