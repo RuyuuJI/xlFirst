@@ -1,9 +1,7 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
 
 import index from '../page/index'
 import mysvg from './mySVG'
-Vue.use(VueRouter);
+
 
 export let routes = [
     {                    //每一个链接都是一个对象
@@ -13,6 +11,3 @@ export let routes = [
     },
     ...mysvg
 ]
-export default {
-    'routes': routes
-}
