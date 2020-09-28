@@ -22,8 +22,9 @@ body{
   margin: 0;
 }
 #app{
+    position: relative;
     display: block;
     background: #1f1f11;
-    height: 100%;
+    height: 100vh;
 }
 </style>

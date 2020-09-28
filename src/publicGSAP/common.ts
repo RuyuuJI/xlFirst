@@ -4,7 +4,7 @@ import { effectConfig } from './config'
     direction: any, // 移动方向
     moveDistance: number // 移动距离
   }
-//   八项距离消失
+//   八向 + 距离 + 360° 消失
 gsap.registerEffect({
     name: 'fade',
     defaults: {
@@ -48,24 +48,10 @@ gsap.registerEffect({
             })
         } else if (config.direction && typeof config.direction === 'number') {
             // 数字角度 （0 - 360)
-            while (config.direction <= 360) {
-                if (config.direction > 0 && config.direction <= 90) {
-                    move.x = config.moveDistance * Math.cos(config.direction / 360)
-                    move.y = config.moveDistance * Math.sin(config.direction / 360)
-                } else if (config.direction > 90 && config.direction <= 180) {
-
-                } else if (config.direction > 180 && config.direction <= 270) {
-
-                } else if (config.direction > 270 && config.direction <= 360) {
-
-                } else {
-                    config.direction = Math.abs(config.direction) > 360
-                        ? config.direction -360
-                        : Math.abs(config.direction)
-                }
-            }
+            move.x = config.moveDistance * Math.cos((config.direction  * 2 * Math.PI)/ 360) | 0
+            move.y = -config.moveDistance * Math.sin((config.direction  * 2 * Math.PI)/ 360) | 0
+           
         }
-        
         return gsap.to(targets, {
             duration: config.duration,
             opacity: 0,

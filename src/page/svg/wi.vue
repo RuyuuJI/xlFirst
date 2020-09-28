@@ -28,8 +28,9 @@ export default {
     },
     methods: {
         lineChange () {
-            console.log('--------------------lineChange')
-            gsap.effects.fade('.la-line', { direction: 'top,left', moveDistance: 50})
+            // suzimiyaharuhi no fade
+            // gsap.effects.fade('.la-line', { direction: 'top,left', moveDistance: 50})
+            gsap.effects.fade('.la-line', { direction: 100, moveDistance: 150})
         }
     }
 }
