@@ -1,7 +1,7 @@
 <template>
   <div class="mysvg">
     <svg  version="1.1" x="0" y="0"  xml:space="preserve"
-    width="1200" height="1200"
+    width="100%" height="100%"
     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> 
       <polyline  points="15 15, 575 5, 575 200, 15 200" class="g-rect-path"/>
       <circle class="borderCircle" cx="250" cy="250" r="50" stroke-width="10" fill="none"></circle>
