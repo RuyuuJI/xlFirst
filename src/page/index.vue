@@ -3,6 +3,8 @@
       <!-- <el-menu ></el-menu> -->
       <mouse-point ></mouse-point>
       <button @click="toPage('mysvg')" >mysvg</button>
+      <button @click="toPage('index')" >index</button>
+
       <router-view > </router-view>
   </div>
 </template>
@@ -16,7 +18,7 @@ export default {
     },
     methods: {
         toPage(page) {
-            this.$router.push({ name: 'mysvg'})
+            this.$router.push({ name: page})
         }
     },
     created() {

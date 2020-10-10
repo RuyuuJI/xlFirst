@@ -55,5 +55,6 @@ export default {
     border: 3px solid rgb(77, 156, 235);
     border-radius: 50%;
     z-index: 9999;
+    pointer-events: none;
 }
 </style>
