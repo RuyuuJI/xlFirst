@@ -12,7 +12,7 @@
         <line x1="200" y1="300" x2="300" y2="200" class="la-line"></line>
       </g>
       <g class="g-poly" >
-          <polygon class="g-polygon-one" points="200,150 250,190 160,210" />
+          <polygon class="g-polygon-one" points="200,150 250,190 160,210 200,150" />
            <polyline class="g-polyline" points="10,20 40,25 60,40 80,120 120,140 200,180" />
       </g>
     </svg>
@@ -21,7 +21,6 @@
 
 <script lang="ts">
 import gsap from '../../publicGSAP/common'
-// import wi from '../../static/svg/wi.svg'
 export default {
     name: 'wi',
     mounted () {
@@ -31,7 +30,7 @@ export default {
         lineChange () {
             // suzimiyaharuhi no fade
             // gsap.effects.fade('.la-line', { direction: 'top,left', moveDistance: 50})
-            gsap.effects.fade('.la-line', { direction: 100, moveDistance: 150})
+            gsap.effects.fade('.la-line', { direction: 360, moveDistance: 350})
         }
     }
 }
