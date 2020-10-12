@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import mousePoint from '../utils/mousePoint.vue'
+import mousePoint from '../components/mousePoint.vue'
 export default {
     name: 'index',
     components: {
