@@ -8,11 +8,13 @@ export default {
     name: 'mouse-point',
     data () {
         return {
+            state: 'hide', // hide/open 
             speed: 0.1 // 0 - 1
         }
     },
     mounted () {
         this.init()
+        this.initClick()
     },
     methods: {
         // 初始化设置
@@ -40,15 +42,36 @@ export default {
                 xSet(pos.x);
                 ySet(pos.y);
             });
+        },
+        // 右键点击
+        initClick () {
+            let that = this
+            document.oncontextmenu = (e) => {
+                e.preventDefault()
+                if (that.state === 'open') return
+                that.state = 'open'
+                // hide the selector
+                let hide = () => {
+                    if (that.state === 'hide') return
+                    console.log('hide')
+                    that.state = 'hide'
+                    this.$emit('hide')
+                    document.removeEventListener('click', hide)
+                }
+                document.addEventListener('click', hide)
+                // open the selector
+                console.log('open')
+                this.$emit('open')
+            }
         }
-    }
+    },
 }
 </script>
 
 <style>
 .mousePoint{
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     position: fixed;
     top: 0;
     left: 0;

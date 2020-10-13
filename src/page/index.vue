@@ -2,8 +2,9 @@
   <div class="index" >
       <!-- <el-menu ></el-menu> -->
       <mouse-point ></mouse-point>
-      <button @click="toPage('mysvg')" >mysvg</button>
-      <button @click="toPage('index')" >index</button>
+      <pagination-ring />
+      <!-- <button @click="toPage('mysvg')" >mysvg</button>
+      <button @click="toPage('index')" >index</button> -->
 
       <router-view > </router-view>
   </div>
@@ -11,10 +12,12 @@
 
 <script lang="ts">
 import mousePoint from '../components/mousePoint.vue'
+import paginationRing from '../components/paginationRing.vue'
 export default {
     name: 'index',
     components: {
-      mousePoint
+      mousePoint,
+      paginationRing
     },
     methods: {
         toPage(page) {
