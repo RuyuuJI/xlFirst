@@ -2,9 +2,9 @@
   <div class="index" >
       <!-- <el-menu ></el-menu> -->
       <mouse-point ></mouse-point>
-      <button @click="toPage('mysvg')" >mysvg</button>
-      <button @click="toPage('index')" >index</button>
-
+             <template v-for="(path,index) in childRoute" >
+                <el-button :key="index" @click="toPage(path.name)">{{path.text || ''}}</el-button>
+            </template>
       <router-view > </router-view>
   </div>
 </template>
