@@ -11,13 +11,9 @@
   },
   "dependencies": {
     "element-ui": "^2.13.2",
-<<<<<<< HEAD
     "three": "^0.121.1",
-    "vue": "^2.5.11"
-=======
     "vue": "^2.5.11",
     "vue-property-decorator": "^9.0.2"
->>>>>>> kaisha
   },
   "browserslist": [
     "> 1%",
