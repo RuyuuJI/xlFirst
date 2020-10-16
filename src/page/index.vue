@@ -21,8 +21,8 @@ export default {
     methods: {
     
         // 打开选择路由
-        openRing () {
-            this.$refs.Ring.open()
+        openRing (e) {
+            this.$refs.Ring.open(e)
         },
         // 关闭路由
         hideRing () {

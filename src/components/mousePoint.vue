@@ -19,7 +19,6 @@ export default {
     methods: {
         // 初始化设置
         init () {
-            // let ball = this.$refs.mousePoint
             let ball = document.querySelector('.mousePoint')
             gsap.set('.mousePoint', {
                 xPercent: -50,
@@ -61,7 +60,7 @@ export default {
                 }
                 that.state = 'open'
                 // open the selector
-                this.$emit('open')
+                this.$emit('open', e)
             }
         }
     },
