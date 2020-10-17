@@ -1,5 +1,5 @@
 <template>
-    <div class="threeBirds">
+    <div class="threeDemo">
         <div class="btns" >
             <template v-for="(path,index) in childRoute" >
                 <el-button :key="index" @click="toPage(path.name)">{{path.text || ''}}</el-button>
@@ -16,7 +16,7 @@ const childRoute = [
     }
 ]
 export default {
-    name: 'mysvg',
+    name: 'threeDemo',
     data () {
         return {
             childRoute
@@ -33,11 +33,12 @@ export default {
 </script>
 
 <style lang="scss">
-.mysvg{
-  position: absolute;
-  display: flex;
+.threeDemo{
+  position: relative;
   height: 100%;
-  width: 100%;
-  background: #1f1f1f;
+  background: rgb(58, 56, 56);
+  .btns{
+      position: absolute;
+  }
 }
 </style>

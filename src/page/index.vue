@@ -2,7 +2,7 @@
   <div class="index" >
       <mouse-point ></mouse-point>
         <template v-for="(path,index) in childRoute" >
-        <el-button :key="index" @click="toPage(path.name)">{{path.text || ''}}</el-button>
+            <el-button :key="index" @click="toPage(path.name)">{{path.text || ''}}</el-button>
         </template>
       <pagination-ring />
       <!-- <button @click="toPage('mysvg')" >mysvg</button>
@@ -21,6 +21,11 @@ export default {
       mousePoint,
       paginationRing
     },
+    data () {
+        return {
+            childRoute: []
+        }
+    },
     methods: {
         toPage(page) {
             this.$router.push({ name: page})
@@ -31,6 +36,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped lang="scss">
+.index{
+    position: relative;
+    display: block;
+    height: 100vh;
+    width: 100vw;
+}
 </style>
