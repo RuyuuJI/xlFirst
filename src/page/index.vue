@@ -1,13 +1,10 @@
 <template>
   <div class="index" >
-      <mouse-point ></mouse-point>
-        <template v-for="(path,index) in childRoute" >
-            <el-button :key="index" @click="toPage(path.name)">{{path.text || ''}}</el-button>
-        </template>
-      <pagination-ring />
-      <!-- <button @click="toPage('mysvg')" >mysvg</button>
-      <button @click="toPage('index')" >index</button> -->
-
+      <mouse-point @open="openRing" @hide="hideRing"></mouse-point>
+        <!-- <template v-for="(path,index) in childRoute" >
+        <el-button :key="index" @click="toPage(path.name)">{{path.text || ''}}</el-button>
+        </template> -->
+      <pagination-ring ref="Ring"/>
       <router-view > </router-view>
   </div>
 </template>
@@ -27,8 +24,14 @@ export default {
         }
     },
     methods: {
-        toPage(page) {
-            this.$router.push({ name: page})
+    
+        // 打开选择路由
+        openRing (e) {
+            this.$refs.Ring.open(e)
+        },
+        // 关闭路由
+        hideRing () {
+            this.$refs.Ring.hide()
         }
     },
     created() {

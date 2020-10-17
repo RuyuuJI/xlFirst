@@ -19,7 +19,6 @@ export default {
     methods: {
         // 初始化设置
         init () {
-            // let ball = this.$refs.mousePoint
             let ball = document.querySelector('.mousePoint')
             gsap.set('.mousePoint', {
                 xPercent: -50,
@@ -48,20 +47,20 @@ export default {
             let that = this
             document.oncontextmenu = (e) => {
                 e.preventDefault()
-                if (that.state === 'open') return
-                that.state = 'open'
                 // hide the selector
-                let hide = () => {
-                    if (that.state === 'hide') return
-                    console.log('hide')
-                    that.state = 'hide'
-                    this.$emit('hide')
-                    document.removeEventListener('click', hide)
+       
+                if (that.state !== 'open') {
+                    let hide = () => {
+                        if (that.state === 'hide') return
+                        that.state = 'hide'
+                        this.$emit('hide')
+                        document.removeEventListener('click', hide)
                 }
-                document.addEventListener('click', hide)
+                    document.addEventListener('click', hide)
+                }
+                that.state = 'open'
                 // open the selector
-                console.log('open')
-                this.$emit('open')
+                this.$emit('open', e)
             }
         }
     },
