@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
       <router-view></router-view>
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
 body{
   margin: 0;
 }
-#app{
+.app{
     position: relative;
     display: block;
     background: #1f1f11;

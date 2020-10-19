@@ -2,7 +2,6 @@
     <div class="threeBirds" ></div>
 </template>
 <script lang="ts">
-import Vue from 'vue'
 import * as THREE from 'three';
 // ----------------------
 let scene, 
@@ -25,7 +24,7 @@ let HEIGHT,
   	windowHalfY,
     mousePos = {x:0,y:0};
 
-export default Vue.extend({
+export default ({
     name: 'three-birds',
     mounted () {
         this.init()

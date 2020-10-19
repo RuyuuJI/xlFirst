@@ -6,7 +6,7 @@
         },
         "allowSyntheticDefaultImports": true, // 允许从没有设置默认导出的模块中默认导入。这并不影响代码的显示，仅为了类型检查。
         "experimentalDecorators": true, // 启用ES装饰器。
-        "allowJs": true,  // 允许编译javascript文件。
+        "allowJs": false,  // 允许编译javascript文件。
         "module": "ES6", // 指定生成哪个模块系统代码："None"，"CommonJS"，"AMD"，"System"，"UMD"，"ES6"或"ES2015"。
         "target": "ES6", // 指定ECMAScript目标版本 "ES3"（默认）， "ES5"， "ES6"/ "ES2015"， "ES2016"， "ES2017"或 "ESNext"。 
         "moduleResolution": "Node", // module === "AMD" or "System" or "ES6" ? "Classic" : "Node" 决定如何处理模块。 https://www.tslang.cn/docs/handbook/module-resolution.html
@@ -32,15 +32,13 @@
     },
     "include": [
         "src/*.ts",
-        "src/**/*.ts",
-        "src/*.js",
-        "src/**/*.js"
+        "src/**/*.ts"
     ],
     "exclude": [
         "node_modules",
         "**/*.spec.ts"
     ],
-    "compileOnSave": false,
+    "compileOnSave": true,
     "atom": {
       "rewriteTsconfig": false
     }

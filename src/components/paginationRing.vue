@@ -1,10 +1,11 @@
 <template>
   <div class="paginationRing">
-      <svg ref="ring" xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <svg ref="ring" class="ring" xmlns="http://www.w3.org/2000/svg" version="1.1"
+        width="150" height="150">
          <template v-for="page in pageList">
            <circle v-if="page.name !== $route.name" :key="page.name" @click="toPage(page.name)"
            class="page"
-           cx="100" cy="50" r="20" stroke="black" 
+           cx="80" cy="50" r="20" stroke="black" 
            stroke-width="2"/>
          </template>
        
@@ -25,14 +26,22 @@ export default {
     }
   },
   created () {
+  },
+  mounted () {
     this.init()
   },
   methods: {
-    // 初始化位置
+    // 初始化
     init () {
+      let num = this.pageList.length
+      // let r = 0
     },
     // 打开选择
     open (e) {
+      let ring = this.$refs.ring
+      gsap.to(ring, {
+        autoAlpha: 1
+      })
       this.move({
         x: e.x,
         y: e.y
@@ -40,18 +49,21 @@ export default {
     },
     // 关闭选择
     hide () {
-      console.log('hide')
+      let ring = this.$refs.ring
+      gsap.to(ring, {
+        autoAlpha: 0
+      })
     },
     move ({ x, y}) {
       let ring = this.$refs.ring
       gsap.fromTo(ring, {
-        x: Number(gsap.getProperty(ring, "x")),
-        y: Number(gsap.getProperty(ring, "y"))
+        x: gsap.getProperty(ring, "x"),
+        y: gsap.getProperty(ring, "y")
       },
       {
         x: x,
         y: y,
-        rotation: 720,
+        rotation: (gsap.getProperty(ring, "rotation") > 0 ? -360 : 360),
         duration: 1.5,
         ease: "power2.out"
       })
@@ -60,6 +72,7 @@ export default {
     toPage(page) {
     if (page)
         this.$router.push({ name: page})
+        this.hide()
     },
   }
 }
@@ -71,9 +84,10 @@ export default {
   display: block;
   height: 100px;
   width: 100px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  border: 2px solid white;
   .page{
     stroke: antiquewhite;
     fill: transparent;

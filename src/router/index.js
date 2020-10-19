@@ -1,6 +1,6 @@
 
-import index from '../page/index'
-import mysvg from './mySVG'
+import index from '../../src/page/index'
+import mysvg from '../router/mySVG'
 import threeDemo from './threeDemo'
 
 
@@ -16,3 +16,6 @@ export let routes = [
     },
     
 ]
+export default {
+    routes: routes
+}
