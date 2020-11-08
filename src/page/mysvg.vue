@@ -44,5 +44,8 @@ export default {
   height: 100%;
   width: 100%;
   background: #1f1f1f;
+  .btns{
+      position: absolute;
+  }
 }
 </style>

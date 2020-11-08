@@ -1,25 +1,20 @@
 <template>
     <div class="threeDemo">
         <div class="btns" >
-            <template v-for="(path,index) in childRoute" >
-                <el-button :key="index" @click="toPage(path.name)">{{path.text || ''}}</el-button>
+            <template v-for="(path,index) in ThreeDemoRoute" >
+                <el-button :key="index" @click="toPage(path.name)">{{path.name || ''}}</el-button>
             </template>
       </div>
       <router-view ></router-view>
     </div>
 </template>
 <script lang="ts">
-const childRoute = [
-    {
-        name: 'threeBirds',
-        text: '三只鸟'
-    }
-]
+import ThreeDemoRoute from '../router/threeDemo'
 export default {
     name: 'threeDemo',
     data () {
         return {
-            childRoute
+            ThreeDemoRoute: ThreeDemoRoute.children || []
         }
     },
     mounted () {
@@ -38,7 +33,16 @@ export default {
   height: 100%;
   background: rgb(58, 56, 56);
   .btns{
+      display: flex;
+      width: 30px;
+      border-radius: 10px;
+      flex-direction: row;
+      overflow: hidden;
       position: absolute;
+      transition: all 1.5s ease-in-out;
+      &:hover{
+          width: fit-content;
+      }
   }
 }
 </style>

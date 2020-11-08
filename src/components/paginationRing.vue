@@ -1,14 +1,20 @@
 <template>
   <div class="paginationRing">
       <svg ref="ring" class="ring" xmlns="http://www.w3.org/2000/svg" version="1.1"
-        width="150" height="150">
+        >
+        <defs > 
+          <filter id="shodowLight" width="200%" height="200%">
+            <feOffset result="offOut" in="SourceGraphic" dx="0" dy="0"/>
+            <feBlend in="SourceGraphic" in2="offOut" mode="normal" />
+            <feGaussianBlur stdDeviation="1"/>
+          </filter>
+        </defs>
          <template v-for="page in pageList">
            <circle v-if="page.name !== $route.name" :key="page.name" @click="toPage(page.name)"
            class="page"
-           cx="80" cy="50" r="20" stroke="black" 
-           stroke-width="2"/>
+           cx="80" cy="50" r="20" stroke="black" stroke-width="3"
+           filter="url(#shodowLight)"/>
          </template>
-       
       </svg>
  
   </div>
@@ -33,7 +39,7 @@ export default {
   methods: {
     // 初始化
     init () {
-      let num = this.pageList.length
+      let num = this.pageList.length 
       // let r = 0
     },
     // 打开选择
@@ -82,16 +88,27 @@ export default {
 .paginationRing{
   position: fixed;
   display: block;
-  height: 100px;
-  width: 100px;
+  height: 0;
+  width: 0;
   left: 0;
   top: 0;
   z-index: 9999;
-  border: 2px solid white;
-  .page{
-    stroke: antiquewhite;
+  .ring{
+    display: block;
+    width: fit-content;
+    height: fit-content;
+    pointer-events: none;
+    .page{
+    stroke: rgb(175, 166, 153);
     fill: transparent;
     cursor: pointer;
+    transition: all .5s linear;
+    pointer-events: all;
+    &:hover{
+      stroke: aliceblue;
+    }
   }
+  }
+  
 }
 </style>
